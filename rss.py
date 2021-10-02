@@ -43,11 +43,11 @@ def create_feed_checker(feed_url):
         entry = FEED.entries[0]
         if entry.id != db.get_link(feed_url).link:
                        # ↓ Edit this message as your needs.
-            message = f"**ℹ️ 🄽🄴🅆 🅁🅂🅂 ℹ️**\n\n**{entry.title}**\n\n```{entry.link}```"
+            message = f"**ℹ️ 🄽🄴🅆 🅁🅂🅂 ℹ️ Magnet Link by hemanthfile**\n\n**{entry.title}**\n\n```{entry.link}```"
             try:
                 app.send_message(log_channel, message)
                 if app2 is not None:
-                    mirr_msg = f"/leech {entry.link}"
+                    mirr_msg = f"/mirror {entry.link}"
                     app2.send_message(mirr_chat, mirr_msg)
                 db.update_link(feed_url, entry.id)
             except FloodWait as e:
