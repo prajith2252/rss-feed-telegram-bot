@@ -43,7 +43,7 @@ def create_feed_checker(feed_url):
         entry = FEED.entries[0]
         if entry.id != db.get_link(feed_url).torrent:magnetURI:
                        # ↓ Edit this message as your needs.
-            message = f"**ℹ️ 🄽🄴🅆 🅁🅂🅂 ℹ️**\n\n**{entry.title}**\n\n```{entry.link}```"
+            message = f"**ℹ️ 🄽🄴🅆 🅁🅂🅂 ℹ️**\n\n**{entry.title}**\n\n```{entry.torrent:magnetURI}```"
             try:
                 app.send_message(log_channel, message)
                 if app2 is not None:
