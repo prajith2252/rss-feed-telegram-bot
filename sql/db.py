@@ -6,10 +6,10 @@ class database(BASE):
     website = Column(String, primary_key=True)
     link = Column(String)
 
-    def __init__(self, website, link):
+    def __init__(self, website, link, torrent):
         self.website = website
         self.link = link
-
+        self.torrent = torrent
 
 database.__table__.create(checkfirst=True)
 
@@ -27,10 +27,12 @@ def update_link(website, link):
     adder = SESSION.query(database).get(website)
     if adder:
         adder.link = link
+        adder.torrent = torrent
     else:
         adder = database(
             website,
-            link
+            link,
+            torrent
         )
     SESSION.add(adder)
     SESSION.commit()
