@@ -41,7 +41,7 @@ def create_feed_checker(feed_url):
         if len(FEED.entries) == 0:
             return
         entry = FEED.entries[0]
-        if entry.id != db.get_link(feed_url).torrent:magnetURI:
+        if entry.id != db.get_link(feed_url).torrent:
                        # ↓ Edit this message as your needs.
             message = f"**ℹ️ 🄽🄴🅆 🅁🅂🅂 ℹ️**\n\n**{entry.title}**\n\n```{entry.torrent:magnetURI}```"
             try:
