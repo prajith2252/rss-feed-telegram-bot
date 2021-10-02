@@ -23,7 +23,7 @@ def get_link(website):
         SESSION.close()
 
 
-def update_link(website, link):
+def update_link(website, link, torrent):
     adder = SESSION.query(database).get(website)
     if adder:
         adder.link = link
